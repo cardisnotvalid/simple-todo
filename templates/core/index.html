@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block body %}
+<div class="content">
+    <form class="todo_add" action="{% url 'add_todo' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="body" rows="4" cols="32" placeholder="Description"></textarea>
+        <input type="submit" value="Add">
+    </form>
+    <hr>
+    {% if todos %}
+    <div class="todo_list">
+    {% for todo in todos %}
+    <div class="item">
+        <form class="item__delete" action="{% url 'delete_todo' todo.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="X">
+        </form>
+        <div class="item__title">{{ todo.title }}</div>
+        <div class="item__body">{{ todo.body }}</div>
+        <div class="time">{{ todo.created_at }}</div>
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <h2>No todos</h2>
+    {% endif %}
+</div>
+{% endblock body %}

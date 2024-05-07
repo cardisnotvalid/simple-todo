@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --text: #020808;
+    --background: #effbf9;
+    --primary: #43cfc1;
+    --secondary: #93b6e3;
+    --accent: #6584d7;
+    --item-br: 0.4rem;
+    --item-body-br: 0.2rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    font-family: "Roboto", sans-serif;
+}
+
+.content {
+    padding: 1.8rem 0;
+    max-width: 64%;
+    margin: 0 auto;
+}
+
+.todo_add {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    input, textarea {
+        font-family: sans-serif;
+        padding: 0.4rem;
+        font-size: 1rem;
+        color: var(--text);
+        background: var(--background);
+        border-radius: 0.2rem;
+        border: 1px solid var(--accent);
+    }
+}
+
+.todo_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0.8rem;
+    border: 1px solid var(--accent);
+    border-radius: var(--item-br);
+}
+
+.item__delete {
+    position: absolute;
+    right: 0;
+    padding-right: 0.8rem;
+
+    input {
+        color: var(--text);
+        background: var(--background);
+        font-weight: bold;
+        border-radius: 0.2rem;
+        border: 1px solid var(--text);
+    }
+}
+
+.item__title {
+    padding-bottom: 0.4rem;
+    color: var(--text);
+    font-weight: bold;
+}
+
+.item__body {
+    padding: 0.64rem;
+    border-radius: var(--item-body-br);
+    color: var(--text);
+    background: var(--secondary);
+}
+
+.item .time {
+    padding-top: 0.5rem;
+    color: var(--text);
+}
